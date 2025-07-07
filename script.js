@@ -22,6 +22,21 @@ function resetTotal() {
   totalElement.textContent = currentTotal;
 }
 
+function toggleDarkMode() {
+  const html = document.documentElement;
+  const body = document.body;
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  const isDark = html.classList.toggle("dark-mode");
+  body.classList.toggle("dark-mode", isDark);
+
+  // Update emoji
+  toggleBtn.textContent = isDark ? "🌞" : "🌙";
+
+  // Save preference
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
 document.addEventListener("keydown", function (event) {
   // Ctrl + Z to undo
   if (event.key === "z" && (event.ctrlKey || event.metaKey)) {
@@ -34,4 +49,25 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
     resetTotal();
   }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("theme-toggle");
+  const savedTheme = localStorage.getItem("theme");
+
+  // Decide initial theme
+  let useDark = false;
+
+  if (savedTheme === "dark") {
+    useDark = true;
+  } else if (savedTheme === "light") {
+    useDark = false;
+  } else {
+    // No saved theme — use system preference
+    useDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  document.documentElement.classList.toggle("dark-mode", useDark);
+  document.body.classList.toggle("dark-mode", useDark);
+  toggleBtn.textContent = useDark ? "🌞" : "🌙";
 });

@@ -36,10 +36,26 @@ html, body {
   justify-content: center;
 }
 
-/* === Header === */
-h1 {
+/* Header with toggle switch */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1em;
-  text-align: center;
+}
+
+.emoji-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 0.5em;
+  transition: transform 0.2s;
+}
+
+.emoji-toggle:hover {
+  transform: scale(1.2);
 }
 
 /* === Domino Grid === */
@@ -78,6 +94,12 @@ h1 {
   user-select: none;
 }
 
+.domino img:hover {
+  box-shadow: 0 0 0 3px #3498db44;
+  transform: scale(1.03);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
 /* === Buttons === */
 .buttons {
   display: flex;
@@ -101,8 +123,16 @@ h1 {
   background-color: #f4a259;
 }
 
+.undo:hover {
+  background-color: #e89543;
+}
+
 .reset {
   background-color: #d9534f;
+}
+
+.reset:hover {
+  background-color: #c9433e;
 }
 
 /* === Button Effects === */
@@ -126,4 +156,34 @@ button {
   font-size: 1.25em;
   font-weight: bold;
   text-align: center;
+}
+
+/* === Dark Mode === */
+html.dark-mode,
+body.dark-mode {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+html.dark-mode .wrapper {
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+html.dark-mode .buttons button {
+  color: black;
+}
+
+html.dark-mode .undo {
+  background-color: #e0a15c;
+}
+
+html.dark-mode .reset {
+  background-color: #e26c69;
+}
+
+html.dark-mode .domino img:hover {
+  box-shadow: 0 0 0 3px #74b9ff44;
 }
