@@ -1,0 +1,37 @@
+const totalElement = document.getElementById("total");
+let currentTotal = 0;
+let history = [];
+
+function updateTotal(value) {
+  currentTotal += value;
+  history.push(currentTotal);
+  totalElement.textContent = currentTotal;
+}
+
+function undoLastAction() {
+  if (history.length > 0) {
+    history.pop();
+    currentTotal = history.length > 0 ? history[history.length - 1] : 0;
+    totalElement.textContent = currentTotal;
+  }
+}
+
+function resetTotal() {
+  currentTotal = 0;
+  history = [];
+  totalElement.textContent = currentTotal;
+}
+
+document.addEventListener("keydown", function (event) {
+  // Ctrl + Z to undo
+  if (event.key === "z" && (event.ctrlKey || event.metaKey)) {
+    event.preventDefault();
+    undoLastAction();
+  }
+
+  // R to reset (without Ctrl or Cmd)
+  if (event.key === "r" && !(event.ctrlKey || event.metaKey)) {
+    event.preventDefault();
+    resetTotal();
+  }
+});

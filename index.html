@@ -11,27 +11,124 @@
       <h1>Domino Counter</h1>
 
       <div class="grid">
-        <!-- Grid of domino buttons -->
-        <button class="domino"><img src="Images/12.png" alt="12" /></button>
-        <button class="domino"><img src="Images/11.png" alt="11" /></button>
-        <button class="domino"><img src="Images/10.png" alt="10" /></button>
-        <button class="domino"><img src="Images/9.png" alt="9" /></button>
-        <button class="domino"><img src="Images/8.png" alt="8" /></button>
-        <button class="domino"><img src="Images/7.png" alt="7" /></button>
-        <button class="domino"><img src="Images/6.png" alt="6" /></button>
-        <button class="domino"><img src="Images/5.png" alt="5" /></button>
-        <button class="domino"><img src="Images/4.png" alt="4" /></button>
-        <button class="domino"><img src="Images/3.png" alt="3" /></button>
-        <button class="domino"><img src="Images/2.png" alt="2" /></button>
-        <button class="domino"><img src="Images/1.png" alt="1" /></button>
+        <button class="domino">
+          <img
+            src="Images/12.png"
+            onclick="updateTotal(12)"
+            draggable="false"
+            title="12"
+            alt="12"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/11.png"
+            onclick="updateTotal(11)"
+            draggable="false"
+            title="11"
+            alt="11"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/10.png"
+            onclick="updateTotal(10)"
+            draggable="false"
+            title="10"
+            alt="10"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/9.png"
+            onclick="updateTotal(9)"
+            draggable="false"
+            title="9"
+            alt="9"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/8.png"
+            onclick="updateTotal(8)"
+            draggable="false"
+            title="8"
+            alt="8"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/7.png"
+            onclick="updateTotal(7)"
+            draggable="false"
+            title="7"
+            alt="7"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/6.png"
+            onclick="updateTotal(6)"
+            draggable="false"
+            title="6"
+            alt="6"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/5.png"
+            onclick="updateTotal(5)"
+            draggable="false"
+            title="5"
+            alt="5"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/4.png"
+            onclick="updateTotal(4)"
+            draggable="false"
+            title="4"
+            alt="4"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/3.png"
+            onclick="updateTotal(3)"
+            draggable="false"
+            title="3"
+            alt="3"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/2.png"
+            onclick="updateTotal(2)"
+            draggable="false"
+            title="2"
+            alt="2"
+          />
+        </button>
+        <button class="domino">
+          <img
+            src="Images/1.png"
+            onclick="updateTotal(1)"
+            draggable="false"
+            title="1"
+            alt="1"
+          />
+        </button>
       </div>
 
       <div class="buttons">
-        <button class="undo">Undo</button>
-        <button class="reset">Reset</button>
+        <button class="undo" onclick="undoLastAction()">Undo</button>
+        <button class="reset" onclick="resetTotal()">Reset</button>
       </div>
 
       <div class="total">Total <span id="total">0</span></div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
