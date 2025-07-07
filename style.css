@@ -105,7 +105,7 @@ h1 {
   background-color: #d9534f;
 }
 
-/* === Button Focus Effects === */
+/* === Button Effects === */
 button:focus:not(:focus-visible) {
   outline: none;
 }
@@ -115,6 +115,10 @@ button:focus-visible {
   border-radius: 8px;                 /* match your .domino img */
   outline-offset: 4px;                /* spacing outside the image */
   transition: outline 0.1s ease;
+}
+
+button {
+  touch-action: manipulation; /* Prevents double-tap zoom on mobile */
 }
 
 /* === Total Display === */
