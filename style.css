@@ -1,0 +1,23 @@
+html, body {
+  font-family: sans-serif;
+  background: white;
+  color: black;
+}
+
+.domino {
+  background: #fff;
+  border: 2px solid black;
+}
+
+.buttons button {
+  color: white;
+  cursor: pointer;
+}
+
+.undo {
+  background-color: #f4a259;
+}
+
+.reset {
+  background-color: #d9534f;
+}
