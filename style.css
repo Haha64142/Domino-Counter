@@ -45,17 +45,26 @@ html, body {
   margin-bottom: 1em;
 }
 
-.emoji-toggle {
+.icon-toggle {
   background: none;
   border: none;
-  font-size: 1.5em;
   cursor: pointer;
+  padding: 0;
   margin-left: 0.5em;
-  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  transition: transform 0.2s, color 0.3s;
 }
 
-.emoji-toggle:hover {
+.icon-toggle:hover {
   transform: scale(1.2);
+}
+
+.icon-toggle img {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 /* === Domino Grid === */

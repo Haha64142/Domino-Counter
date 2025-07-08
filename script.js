@@ -22,19 +22,23 @@ function resetTotal() {
   totalElement.textContent = currentTotal;
 }
 
+function setIcon(isDark) {
+  const useEl = document.querySelector("#theme-icon use");
+  useEl.setAttribute("href", isDark ? "#sun-icon" : "#moon-icon");
+}
+
 function toggleDarkMode() {
   const html = document.documentElement;
   const body = document.body;
-  const toggleBtn = document.getElementById("theme-toggle");
 
   const isDark = html.classList.toggle("dark-mode");
   body.classList.toggle("dark-mode", isDark);
 
-  // Update emoji
-  toggleBtn.textContent = isDark ? "🌞" : "🌙";
-
   // Save preference
   localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  // Update icon
+  setIcon(isDark);
 }
 
 document.addEventListener("keydown", function (event) {
@@ -52,11 +56,8 @@ document.addEventListener("keydown", function (event) {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("theme-toggle");
   const savedTheme = localStorage.getItem("theme");
-
-  // Decide initial theme
-  let useDark = false;
+  let useDark;
 
   if (savedTheme === "dark") {
     useDark = true;
@@ -69,5 +70,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.documentElement.classList.toggle("dark-mode", useDark);
   document.body.classList.toggle("dark-mode", useDark);
-  toggleBtn.textContent = useDark ? "🌞" : "🌙";
+  setIcon(useDark);
 });
+
+// System theme listener
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return; // Don't override manual user choice
+
+    const useDark = e.matches;
+    document.documentElement.classList.toggle("dark-mode", useDark);
+    document.body.classList.toggle("dark-mode", useDark);
+
+    setIcon(useDark);
+  });
